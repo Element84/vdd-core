@@ -17,7 +17,7 @@
       (require (symbol handler-ns))
       (let [data-handler (resolve (read-string data-handler))]
         (data-handler data)))
-    (catch RuntimeException e
+    (catch Exception e
       (error e "Error trying to invoke data handler"))))
 
 (defn config
