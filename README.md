@@ -16,7 +16,7 @@ Add the following dependency to your `project.clj` file:
 
 ## Using VDD Core
 
-See [Using VDD Core](https://github.com/Element84/vdd-core/wiki/Using-VDD-Core)
+See [Using VDD Core](https://github.com/Element84/vdd-core/wiki/Using-VDD-Core) and documentation on the [wiki](https://github.com/Element84/vdd-core/wiki).
 
 ## TODO
 
