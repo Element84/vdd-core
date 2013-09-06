@@ -1,6 +1,6 @@
 /target
 .lein-repl-history
-pom.xml
+pom.xml*
 .lein-failures
 /doc
 
