@@ -1,4 +1,5 @@
 (ns vdd-core.internal.project-viz
+  "Handles finding visualizations in a user project."
   (:require [clojure.java.io :as io]))
 
 (defn- viz-dirs
@@ -7,9 +8,9 @@
   (let [viz-root (:viz-root config)]
     ; Look in viz-root ...
     (->> viz-root
-         io/file 
+         io/file
          ; ... for all directories (recursively)
-         file-seq 
+         file-seq
          (map str)
          ; ... that contain an index.html.
          (filter #(re-seq #"/index.html$" %))
@@ -25,7 +26,7 @@
   (let [viz-root (:viz-root config)
         vizs (viz-dirs config)]
     ; Return the path and title of the visualizations
-    (map (fn [viz] 
+    (map (fn [viz]
            (let [path (format "%s/%s" viz-root viz)
                  driver (->> path
                              io/file

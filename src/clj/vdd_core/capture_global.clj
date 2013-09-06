@@ -1,10 +1,11 @@
 (ns vdd-core.capture-global
-  (:require [taoensso.timbre :as timbre :refer (debug)]
-            [vdd-core.core]))
+  "Allows capturing code execution data from code being visualized. This is a very simplistic
+  implementation that stores captured state in a vector in an atom."
+  (:require [taoensso.timbre :as timbre :refer (debug)]))
 
 (def ^:private _captured (atom []))
 
-(def enabled (atom false))
+(def ^:private enabled (atom false))
 
 (defn enable
   "Enables capturing of data. This should only be done in development mode.
@@ -14,13 +15,13 @@
   ([do-enable]
    (reset! enabled do-enable)))
 
-(defn captured 
+(defn captured
   "Returns the data that was captured."
   []
   @_captured)
 
-(defn reset-captured! 
-  "Resets the internal captured state"
+(defn reset-captured!
+  "Clear the captured state."
   []
   (reset! _captured []))
 

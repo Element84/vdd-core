@@ -1,4 +1,5 @@
 (ns vdd-core.internal.wamp-handler
+  "Handles connecting and receiving data over the WAMP protocol."
   (:require [taoensso.timbre :as timbre
              :refer (trace debug info warn error fatal spy)]
             [org.httpkit.server :as http-kit]
@@ -20,15 +21,15 @@
 (defn- on-close [sess-id status]
   (debug "WAMP client disconnected [" sess-id "] " status))
 
-(defn- to-string 
+(defn- to-string
   "Converts s to a string. If s is a keyword it will return its name."
   [s]
   (if (keyword? s)
     (name s)
     (str s)))
 
-(defn- wamp-config [config] 
-  (let [channel-config (into {} (for [channel (:data-channels config)] 
+(defn- wamp-config [config]
+  (let [channel-config (into {} (for [channel (:data-channels config)]
                                   [(evt-url (to-string channel)) true]))
         rpc-config (into {}(for [[rpc-name f] (:viz-request-handlers config)]
                              [(rpc-url (to-string rpc-name)) f]))]
@@ -42,7 +43,7 @@
   "Returns a http-kit websocket handler with wamp subprotocol"
   [config req]
   (let [ws-origins-re (re-pattern (str "http://localhost:" (:port config)))]
-    (wamp/with-channel-validation 
+    (wamp/with-channel-validation
       req channel ws-origins-re
       (wamp/http-kit-handler channel (wamp-config config)))))
 

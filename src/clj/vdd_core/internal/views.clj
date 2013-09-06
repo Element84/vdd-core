@@ -4,16 +4,16 @@
         [hiccup.element :only [javascript-tag]]
         [hiccup.page :only [html5 include-css include-js]]))
 
-(defn- navbar 
+(defn- navbar
   "Creates a navbar for vdd page. Takes a list of visualization tuples to link to which
   should contain a path and title."
   [vizs]
   [:div.navbar.navbar-inverse.navbar-fixed-top
    [:div.navbar-inner
     [:div.container
-     [:button {:type "button" 
-               :class "btn btn-navbar" 
-               :data-toggle "collapse" 
+     [:button {:type "button"
+               :class "btn btn-navbar"
+               :data-toggle "collapse"
                :data-target ".nav-collapse"}
       [:span.icon-bar ]
       [:span.icon-bar ]
@@ -26,7 +26,7 @@
        [:li.dropdown
         [:a {:href "#" :class "dropdown-toggle" :data-toggle "dropdown"} "Visualizations" [:b.caret]]
         [:ul.dropdown-menu
-         (comment 
+         (comment
            ;; Not supporting built in visualizations yet.
            [:li.nav-header "Built in" ]
            (for [{path :path title :title} (:built-in vizs)]
@@ -37,32 +37,32 @@
            [:li [:a {:href path} title]])]]]]]]])
 
 (defn- head [title]
-  [:head 
+  [:head
      [:meta {:charset "utf-8"}]
      [:title title]
-     [:meta {:name "viewport" 
+     [:meta {:name "viewport"
              :content "width=device-width, initial-scale=1.0"}]
      (include-css "/jquery-ui/jquery-ui.min.css"
-                  "/bootstrap/css/bootstrap.min.css" 
+                  "/bootstrap/css/bootstrap.min.css"
                   ; Included before bootstrap-responsive because we want it
                   ; to override the body padding top and bottom styles in smaller pages
                   "/vdd/vdd.css"
-                  "/bootstrap/css/bootstrap-responsive.min.css" 
+                  "/bootstrap/css/bootstrap-responsive.min.css"
                   )])
 
 (defn- footer []
   [:div.container
-    [:footer 
+    [:footer
      [:hr]
      [:p "&copy; Jason Gilman and element 84 2013"]]])
 
-(defn- vdd-page 
+(defn- vdd-page
   "Creates a visualization page taking the page title, the vizs to link to in the
   navbar and the page contents."
   [& {title :title vizs :vizs content :content javascripts :javascripts}]
-  (html5 
+  (html5
     (head title)
-    (vec (concat [:body 
+    (vec (concat [:body
            (navbar vizs)
            content
            (footer)
@@ -73,7 +73,9 @@
                        "/vdd/vdd-core.js")]
           javascripts))))
 
-(defn- visualizations [config]
+(defn- visualizations
+  "Retrieves the list of visualizations that should be displayed on the home page."
+  [config]
   {:built-in [{:path "/built-in/data-viewer" :title "Data Viewer"}]
    :project (project-viz/project-visualizations config)})
 
@@ -85,7 +87,7 @@
                       [:a.btn.btn-large.span5 {:href path} title])]
     (vdd-page :title "Visualization Driven Development - Core"
               :vizs vizs
-              :content [:div.container 
+              :content [:div.container
                         [:div.row
                          ;; Not support built in visualizations for now as I'm not happy with the quality of them.
                          #_[:div.span6
@@ -108,6 +110,6 @@
                         [:p "TODO some text here describing the data viewer and that it allows you to show arbitrary data in the browser."]
                         [:p "TODO some code here showing an example"]
                         [:div#target "Data will appear here."]]
-              :javascripts [(javascript-tag "$(function() { 
-                                            vdd.data.enableDataView($('div#target')); 
+              :javascripts [(javascript-tag "$(function() {
+                                            vdd.data.enableDataView($('div#target'));
                                             });")])))
