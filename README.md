@@ -12,7 +12,7 @@ The [vdd-core-examples](https://github.com/Element84/vdd-core-examples) project 
 
 Add the following dependency to your `project.clj` file:
 
-    [vdd-core "0.1.0"]
+    [element84/vdd-core "0.1.0"]
 
 ## Using VDD Core
 
