@@ -4,9 +4,12 @@ VDD Core is a minimal Clojure library built to help enable Visualization Driven 
 
 VDD Core is very new and is considered alpha quality
 
+![VDD Core Overview](http://element84.github.io/vdd-core/images/vdd_core_overview.jpg)
+
 ## Examples
 
 The [vdd-core-examples](https://github.com/Element84/vdd-core-examples) project has several examples of using vdd-core.
+![Quick Sort Example](http://element84.github.io/vdd-core/images/quicksort.jpg)
 
 ## Installation
 
