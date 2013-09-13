@@ -9,6 +9,8 @@ VDD Core is very new and is considered alpha quality
 ## Examples
 
 The [vdd-core-examples](https://github.com/Element84/vdd-core-examples) project has several examples of using vdd-core.
+
+
 ![Quick Sort Example](http://element84.github.io/vdd-core/images/quicksort.jpg)
 
 ## Installation
