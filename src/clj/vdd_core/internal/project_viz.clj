@@ -20,6 +20,16 @@
                    (re-matches %)
                    last)))))
 
+(defn plugin-visualizations
+  "Returns a list of the plugin visualizations that have been configured"
+  [config]
+  (map (fn [plugin-name]
+         {:path (str "plugins/" plugin-name)
+          :title plugin-name
+          :driver (str plugin-name "/driver.clj")})
+       (:plugins config)))
+
+
 (defn project-visualizations
   "Finds the visualizations available in the configured :viz-root."
   [config]
@@ -27,15 +37,14 @@
         vizs (viz-dirs config)]
     ; Return the path and title of the visualizations
     (map (fn [viz]
-           (let [path (format "%s/%s" viz-root viz)
-                 driver (->> path
-                             io/file
-                             file-seq
-                             (map str)
-                             (filter #(.startsWith % (format "%s/driver." path)))
-                             first)]
-             {:path path
-              :title viz
-              :driver driver}))
-           vizs)))
-
+                   (let [path (format "%s/%s" viz-root viz)
+                         driver (->> path
+                                     io/file
+                                     file-seq
+                                     (map str)
+                                     (filter #(.startsWith ^String % (format "%s/driver." path)))
+                                     first)]
+                     {:path path
+                      :title viz
+                      :driver driver}))
+                 vizs)))

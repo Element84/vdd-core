@@ -1,10 +1,8 @@
-(defproject element84/vdd-core "0.1.0"
+(defproject element84/vdd-core "0.1.1-SNAPSHOT"
   :description "vdd-core is a minimal Clojure library built to help enable Visualization Driven Development (VDD)."
   :url "https://github.com/Element84/vdd-core"
   :license {:name "MIT"
             :url "http://opensource.org/licenses/MIT"}
-
-  :main vdd-core.main
 
   :dependencies [[org.clojure/clojure "1.5.1"]
                  [com.taoensso/timbre "2.6.1"]

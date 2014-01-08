@@ -39,6 +39,8 @@
   {:port 8080
    :viz-root "viz"
    :data-channels ["vizdata"]
+   ;; TODO document how plugins work
+   :plugins []
    :viz-request-handlers {"data-callback" handle-viz-call}
    :log {:level :debug
          :file "log/vdd-core.log"

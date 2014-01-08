@@ -46,9 +46,7 @@
                   "/bootstrap/css/bootstrap.min.css"
                   ; Included before bootstrap-responsive because we want it
                   ; to override the body padding top and bottom styles in smaller pages
-                  "/vdd/vdd.css"
-                  "/bootstrap/css/bootstrap-responsive.min.css"
-                  )])
+                  "/vdd/vdd.css")])
 
 (defn- footer []
   [:div.container
@@ -77,6 +75,7 @@
   "Retrieves the list of visualizations that should be displayed on the home page."
   [config]
   {:built-in [{:path "/built-in/data-viewer" :title "Data Viewer"}]
+   :plugins (project-viz/plugin-visualizations config)
    :project (project-viz/project-visualizations config)})
 
 (defn list-views-page
@@ -93,6 +92,10 @@
                          #_[:div.span6
                           [:h3 "Built In Visualizations"]
                           (for [viz (:built-in vizs)]
+                            (viz-link-fn viz))]
+                         [:div.span6
+                          [:h3 "Plugin Visualizations"]
+                          (for [viz (:plugins vizs)]
                             (viz-link-fn viz))]
                          [:div.span6
                           [:h3 "Project Visualizations"]
