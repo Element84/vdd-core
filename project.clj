@@ -19,7 +19,9 @@
                  ; Testing
                  [clj-http "0.7.6"]
                  ; Testing that includes the filesystem (project-viz)
-                 [me.raynes/fs "1.4.5"]]
+                 [me.raynes/fs "1.4.5"]
+                 ; Clojurescript testing
+                 [com.cemerick/clojurescript.test "0.0.4"]]
   :plugins [[lein-cljsbuild "0.3.2"]
             [codox "0.6.4"]]
 
@@ -34,9 +36,7 @@
   :repl-options {:init-ns user}
   :profiles {:dev {:source-paths ["dev"]
                    :plugins [[com.cemerick/austin "0.1.0"]]
-                   :dependencies [[org.clojure/tools.namespace "0.2.4"]
-                                  ; Clojurescript testing
-                                  [com.cemerick/clojurescript.test "0.0.4"]]}}
+                   :dependencies [[org.clojure/tools.namespace "0.2.4"]]}}
 
   :cljsbuild {:builds {:main {:source-paths ["src/cljs" "test/cljs"]
                               :compiler {:output-to "resources/public/vdd/vdd-core.js"
