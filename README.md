@@ -2,7 +2,9 @@
 
 VDD Core is a minimal Clojure library built to help enable Visualization Driven Development (VDD). Read [What is Visualization Driven Development](https://github.com/Element84/vdd-core/wiki/What-is-Visualization-Driven-Development%3F) first if you don't know what VDD is. VDD Core captures code execution as data in your coding environment, sends them to the browser, and then invokes code to visualize it. VDD Core is not a visualization framework or a replacement for things like D3 or Raphael.js. It will be a place to include components to make building visualizations of code execution easier.
 
-VDD Core is very new and is considered alpha quality
+See Jason Gilman's talk about Visualization Driven Development [from Strangloop 2013  here](http://www.infoq.com/presentations/visualization-driven-development).
+
+VDD Core is new and is considered alpha quality
 
 [![VDD Core Overview](http://element84.github.io/vdd-core/images/vdd_core_overview.jpg)](https://github.com/Element84/vdd-core/wiki)
 
