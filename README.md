@@ -37,7 +37,7 @@ Contributions and pull requests are welcome.
 
 ## License
 
-Copyright © 2013 Jason Gilman and [element 84](http://www.element84.com).
+Copyright © 2014 Jason Gilman and [element 84](http://www.element84.com).
 
 Distributed under the MIT License.
 
